@@ -51,6 +51,13 @@ const Chapter = ({chapter:chapterObject}) => {
     const [isOnline, setIsOnline] = useState(true);
     const timeoutID = useRef(null);
 
+    const handleLoading = function(){
+        setIsLoading(draft => {
+                        draft[1] = true;
+                        draft[2] = true;
+                    })
+    }
+
     const handleClick = function(){
         if(chapterObject.images.length - 2 != activePageIndex){
             setActivePageIndex(i => i + 1);
@@ -83,12 +90,7 @@ const Chapter = ({chapter:chapterObject}) => {
         }
     }
 
-    const handleLoading = function(){
-        setIsLoading(draft => {
-                        draft[1] = true;
-                        draft[2] = true;
-                    })
-    }
+    
 
     useEffect(() => {
         if(autoPlayOn){
