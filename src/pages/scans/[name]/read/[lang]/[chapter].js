@@ -54,10 +54,7 @@ const Chapter = ({chapter:chapterObject}) => {
     const handleClick = function(){
         if(chapterObject.images.length - 2 != activePageIndex){
             setActivePageIndex(i => i + 1);
-            setIsLoading(draft => {
-                draft[1] = true;
-                draft[2] = true;
-            })
+            handleLoading();
         }
         else if(chapterObject.hasNext){
             handleNextChapter();
@@ -66,10 +63,7 @@ const Chapter = ({chapter:chapterObject}) => {
     const handleClick2 = function(){
         if(activePageIndex != 0){
             setActivePageIndex(i => i - 1);
-            setIsLoading(draft => {
-                draft[1] = true;
-                draft[2] = true;
-            })
+            handleLoading();
         }
     }
     const handleNextChapter = () => {
@@ -77,10 +71,7 @@ const Chapter = ({chapter:chapterObject}) => {
     }
     const handleSelect = function(e){
         setActivePageIndex(parseInt(e.target.value));
-        setIsLoading(draft=> {
-            draft[1] = true;
-            draft[2] = true;
-        });
+        handleLoading();
     }
 
     const toggleAutoPlay = () => {
@@ -92,15 +83,19 @@ const Chapter = ({chapter:chapterObject}) => {
         }
     }
 
+    const handleLoading = function(){
+        setIsLoading(draft => {
+                        draft[1] = true;
+                        draft[2] = true;
+                    })
+    }
+
     useEffect(() => {
         if(autoPlayOn){
             timeoutID.current = setTimeout(() => {
                 if(chapterObject.images.length - 2 != activePageIndex){
                     setActivePageIndex(i => i + 1);
-                    setIsLoading(draft => {
-                        draft[1] = true;
-                        draft[2] = true;
-                    })
+                    handleLoading();
                 }
                 else{
                     setAutoPlayOn(false); 
