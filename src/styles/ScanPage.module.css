@@ -1,0 +1,72 @@
+.container{
+    display: grid;
+    margin: 20px;
+    grid-template-columns: repeat(12, 1fr);
+    gap:30px;
+    max-width: 100dvw;
+}
+.cover{
+    grid-column: span 4;
+    max-width: min(100%, calc(100dvw - 10px))!important;
+    height: auto;
+}
+.info{
+    grid-column: span 8;
+}
+.font{
+    font-family: "Comfortaa", cursive;
+    font-weight: 300;
+}
+.color{
+    color:#F4BE7E;
+}
+.display{
+    font-size: clamp(20px, 45px, 55px);
+}
+
+.chapters{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.chapList{
+    grid-column: span 1;
+    justify-self: end;
+}
+.disFont{
+    font-family: "Comfortaa", cursive;
+    font-weight: 200;
+}
+
+.chaps{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "Cabin";
+    gap:15px;
+}
+.chaps a{
+    text-decoration: none;
+    color:#F4BE7E;
+}
+.chaps a:hover{
+    font-weight: bold;
+}
+
+@media (max-width:500px){
+    .cover{
+        grid-column: span 12;
+    }
+    .info{
+        grid-column: span 12;
+    }
+    .cover{
+        max-width: 100dvw;
+    }
+    .container{
+        margin:5px;
+    }
+    .chapters{
+        grid-template-columns: 1fr;
+    }
+}

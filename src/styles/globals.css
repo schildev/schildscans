@@ -1,0 +1,116 @@
+body{
+  margin: 0;
+  padding: 0;
+  background: #202124;
+}
+*{
+  max-width: min(100%,100dvw)!important;
+}
+.nomar{
+  margin: 0;
+}
+.navbar{
+  background-color: #202124;
+  min-height: 65px;
+  border-top: 1px solid #F4BE7E;
+  border-bottom: 1px solid #F4BE7E;
+}
+.navbar h1{
+  color: #F4BE7E;
+  font-family: 'Dosis', sans-serif;
+  font-weight: 200;
+  font-size: 35px;
+  padding-top: 10px;
+  padding-left:10px;
+}
+.navbar nav{
+  display: flex;
+  justify-content: flex-end;
+  gap:10px;
+  margin-right:10px;
+  padding-bottom: 10px;
+}
+.navbar nav a{
+  color: #F4BE7E;
+  font-size: clamp(12px, 18px, 20px);
+  text-decoration:none;
+  font-family: 'Cabin', sans-serif;
+}
+.navbar nav a:hover, .navbar nav a:focus{
+  font-weight: bold;
+}
+footer{
+  background: #fff;
+  border-top: #F4BE7E;
+}
+
+.dosis{
+  font-family: "Dosis";
+}
+
+.center{
+  text-align: center;
+}
+
+.scansList{
+  display: flex;
+  gap:10px;
+  margin-left: 10px;
+}
+.scansList .scan a{
+  color: #F4BE7E;
+  text-decoration: none;
+}
+.scansList .scan:hover a{
+  font-weight: bold;
+}
+.white{
+  color:#fff;
+}
+footer{
+  background-color: #202124;
+  margin: 40px 15px;
+  border-top: #F4BE7E 2px solid;
+  color:#fff;
+  font-family: "Comfortaa", cursive;
+}
+
+footer h3{
+  margin-top: 10px;
+}
+
+.cryptos{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:15px;
+}
+
+.cryptos .crypto{
+  grid-column: span 1;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap:10px;
+}
+.crypto{
+  overflow-wrap: anywhere;
+}
+.crypto span{
+  font-size: clamp(10px, 12px, 20px);
+}
+
+@media (max-width:600px) {
+  .navbar nav{
+    justify-content: center;
+  }
+  .navbar nav{
+    margin-top: 5px;
+  }
+  .cryptos{
+    grid-template-columns: 1fr;
+  }
+}
+body{
+  max-width: 100dvw;
+  overflow-x: hidden;
+}

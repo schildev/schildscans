@@ -1,0 +1,137 @@
+
+.content{
+    min-height: 75dvh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    background-color: #fff;
+    border: 1px solid #F4BE7E;
+    min-width: min(96%, 457px);
+    box-sizing: border-box;
+    min-height: 37.5dvh;
+}
+.form_error{
+    border:1px solid #dc351c;
+}
+.form h2{
+    background: #202124;
+    padding:5px 0;
+    border-bottom: 1px #F4BE7E solid;
+}
+.error_bg{
+    background-color: #dc351c!important;
+}
+.field{
+    margin:10px;
+    font-family: "Dosis";
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 10px;
+}
+.sendButton{
+    background-color: #fff;
+    color:#F4BE7E;
+    border: 1px #F4BE7E solid;
+    grid-column: span 1;
+    padding: 7.5px 50px;
+    justify-self: start;
+    transition: background 0.3s;
+    font-family: "Cabin", cursive;
+}
+.sendErrorButton{
+    color: #dc351c!important;
+    border-color: #dc351c;
+}
+.sendErrorButton:hover{
+    background-color: #dc351c!important;
+    color: #fff!important;
+}
+.sendButton:hover{
+    background-color: #F4BE7E;
+    color: #fff;
+    cursor: pointer;
+}
+
+.field input, .field label, .field textarea{
+    grid-column: span 1;
+}
+
+.field input, .field textarea{
+    line-height: 2.1;
+    border-radius: 0;
+    border:1px #ccc solid;
+    padding:1px 5px!important;
+    font-family: "Arial";
+    transition: border 0.3s;
+    resize: none;
+}
+.field input{
+    border-top: 0;
+    border-right:  0;
+    border-left: 0;
+}
+.field input:focus, .field input:focus-visible, .field textarea:focus, .field textarea:focus-visible{
+    border-bottom: 1px solid #F4BE7E!important;
+    outline: none;
+}
+.field textarea:focus, .field textarea:focus-visible{
+    border: 1px #F4BE7E solid;
+}
+.field input:focus, .field input:focus-visible{
+    outline-color: #fff!important;
+    outline-offset: 1px;
+}
+
+@keyframes loading {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.isLoading {
+    background-color: #F4BE7E;
+    display: flex;align-items: center;
+}
+
+.isLoading svg {
+    animation: loading 0.7s infinite linear;
+    border-radius: 100%;
+    stroke: #fff;
+    width: 20px;
+    height: 20px;
+    stroke-dasharray: 60, 58;
+}
+.isLoading:disabled{
+    cursor:not-allowed;
+}
+
+input.error:focus-visible, .error, textarea.error:focus-visible{
+    border: 1px solid #dc351c!important;
+    border-bottom: 1px solid #dc351c!important;
+}
+.sendButton.sendErrorButton.isLoading{
+    background-color: #dc351c;
+}
+p.error{
+    color: #dc351c;
+    margin:2px 0;
+    border: 0!important;
+    display: flex;
+    gap:3px;
+    font-family: "Cabin", cursive;
+}
+
+p.success{
+    color: aquamarine;
+    font-weight: bold;
+    font-family: "Cabin", cursive;
+    margin:0 10px;
+}

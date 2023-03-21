@@ -1,0 +1,154 @@
+.display{
+    font-family: "Comfortaa", cursive;
+    font-size: clamp(28px, 45px, 55px);
+    color:#F4BE7E;
+    text-align: center;
+}
+.chapHeader{
+    display: grid;
+    margin-top: 0;
+    grid-template-columns: 75px 1fr 75px;
+    border-bottom: #F4BE7E 1px solid;
+}
+.chapHeader p, .chapHeader h1{
+    font-family: "Comfortaa", cursive;
+    color: #F4BE7E;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chapHeader p:nth-child(1){
+    grid-column: 1/1;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #F4BE7E;
+}
+.chapHeader p:nth-child(3){
+    grid-column: 3/3;
+    margin: 0;
+    border-left: 1px solid #F4BE7E;
+}
+.chapHeader h1{
+    grid-column: 2/2;
+    margin: 15px 0;
+font-size: clamp(15px, 26px, 32px);
+}
+.history{
+    display: flex;
+    gap: 1px;
+    margin: 10px 15px;
+}
+.history a{
+    font-family: "Cabin", cursive;
+    font-size: 13px;
+    color: #fff;
+    text-decoration: none;
+}
+.history a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+}
+.images{
+    display:flex;
+    justify-content: center;
+    gap:5px;
+}
+.images img{
+    height: auto;
+    min-height: 100%;
+}
+.left_cursor{
+    position: absolute;
+    left: 0;
+    width: 50dvw;
+    height:43dvw;
+}
+.right_cursor{
+    position: absolute;
+    right: 0;
+    width: 50dvw;
+    height: 43dvw;
+}
+.isLoading{
+    filter: brightness(0) saturate(100%) invert(12%) sepia(8%) saturate(442%) hue-rotate(187deg) brightness(94%) contrast(96%);
+    display: grid;
+}
+
+.selectChapter{
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    margin:5px 10px;
+    margin-bottom: 3px;
+}
+.selectChapter select{
+    font-family: "Dosis", cursive;
+    padding: 3px 0;
+    padding-left: 12px;
+    padding-bottom: 6px;
+    color: #F4BE7E;
+    font-weight: bold;
+    background-color: #202124;
+    grid-column: 2/2;
+}
+.selectChapter select:focus-visible{
+    outline: none;
+    border-color: #F4BE7E;
+}
+.selectChapter a{
+    cursor: pointer;
+    justify-self: center;
+    grid-column: span 1;
+    display: flex;
+    align-items: center;
+}
+.notif{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: 15px 30px;
+    border: #F4BE7E 1.5px solid;
+    background: #202124;
+    display: flex;
+    font-family: "Cabin", cursive;
+    gap: 10px;
+    align-items: center;
+    color: #F4BE7E;
+    font-weight: bold;
+}
+
+@keyframes loading {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.page svg{
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    width: 20px;
+    height: 20px;
+    animation: loading 0.7s infinite linear;
+    border-radius: 100%;
+    stroke: #F4BE7E;
+    width: 20px;
+    height: 20px;
+    stroke-dasharray: 60, 58;
+}
+
+.page{
+    display: grid;
+}
+
+@media(max-width:500px){
+    .images div:nth-child(3){
+        position: absolute;
+        visibility: hidden;
+    }    
+    
+}
