@@ -20,7 +20,7 @@ const Report = () => {
                 placeholder={"your email"} type={"email"} />
                 {error?.error?.email && 
                 <p className={styles.error}>{error?.error?.email.map(err => {
-                    return <span>{err}</span>
+                    return <span key={err}>{err}</span>
                 })}
                 </p>}
             </Input>
@@ -31,7 +31,7 @@ const Report = () => {
                 placeholder={"the error"} rows={5} />
                 {error?.error?.message && 
                 <p className={styles.error}>{error?.error?.message.map(err => {
-                    return <span>{err}</span>
+                    return <span key={err}>{err}</span>
                 })}
                 </p>}
             </Input>
