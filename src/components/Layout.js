@@ -12,7 +12,9 @@ const Layout = ({children}) => {
              <meta name="google-site-verification" content="_8TG8uB_TfujnFc1vimMhnZ0S33nyLfGeuCgRx-uqr8" />
         </Head>
         <Head>
-            @import url(&quot;https://fonts.googleapis.com/css2?family=Cabin&family=Tilt+Neon&family=Poiret+One&family=Dosis:wght@200&family=Comfortaa:wght@300&display=swap&ldquo;);
+            <style>
+        @import url(&quot;https://fonts.googleapis.com/css2?family=Cabin&family=Tilt+Neon&family=Poiret+One&family=Dosis:wght@200&family=Comfortaa:wght@300&display=swap&ldquo;);
+            </style>
         </Head>
         <Navbar/>
         <div className="container">
