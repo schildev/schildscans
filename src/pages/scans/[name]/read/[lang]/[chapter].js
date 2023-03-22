@@ -6,6 +6,7 @@ import { useState, Fragment, useEffect, useRef } from "react";
 import {useImmer} from "use-immer";
 import Head from "next/head";
 import { Robots } from "@/components/Robots";
+import Loading from "@/components/Loading";
 
 export async function getStaticPaths(){
     const request = await fetch(`https://schildscans.pythonanywhere.com/api/mangas/all?format=json`);
@@ -154,7 +155,7 @@ Start reading the chapter ${chapter} of the manga ${ name } in ${langue} with Sc
             <form className={styles.selectChapter}>
                     {chapterObject?.hasPrev && (
                         <Link href={`/scans/${name}/read/${lang}/${chapterObject.prevChapter}`}>
-                            <Image src="/prev.svg" quality={100}
+                            <Image alt={"left arrow for naviguating into chapter"} src="/prev.svg" quality={100}
                             width={30} height={30} />
                         </Link>
                     )}
@@ -170,7 +171,7 @@ Start reading the chapter ${chapter} of the manga ${ name } in ${langue} with Sc
                     </select>
                     {chapterObject?.hasNext && (
                         <Link href={`/scans/${name}/read/${lang}/${chapterObject.nextChapter}`}>
-                            <Image src="/next.svg" quality={100}
+                            <Image alt={"right arrow for naviguating into chapter"} src="/next.svg" quality={100}
                             width={30} height={30} />
                         </Link>
                     )}
@@ -179,18 +180,18 @@ Start reading the chapter ${chapter} of the manga ${ name } in ${langue} with Sc
                 display:"flex", justifyContent:"center", marginBottom:"5px",
                 cursor:"pointer", gap:"5px"
                 }}>
-                <Image src="/less.svg" onClick={() => {addOrDecreaseTimeout(-2500)}}
+                <Image alt={"arrows for decrease the time beetween each auto page nav"} src="/less.svg" onClick={() => {addOrDecreaseTimeout(-2500)}}
                 width={30} height={30} />
-                <Image src={!autoPlayOn ? "/playoff.svg" : "/playon.svg"} onClick={toggleAutoPlay} width={30} height={30} />
-                <Image onClick={() => {addOrDecreaseTimeout(2500)}}
+                <Image alt={"icon for on autoplay"} src={!autoPlayOn ? "/playoff.svg" : "/playon.svg"} onClick={toggleAutoPlay} width={30} height={30} />
+                <Image alt={"arrows for increase the time beetween each auto page nav"} onClick={() => {addOrDecreaseTimeout(2500)}}
                 src="/more.svg" width={30} height={30} />
             </div>
             <div className={styles.images}>
                 <div style={{height:imageHeight[1]}} className={styles.left_cursor} onClick={handleClick2}></div>
                 <div className={styles.page}>
-                    <Image
+                    {(!isLoading[1] || isOnline) ? <Image
                     alt={`Page ${activePageIndex + 1} of the chapter ${chapter} of ${name}`}
-                    className={isLoading[1] && styles.isLoading} 
+                    className={isLoading[1] ? styles.isLoading : undefined} 
                     onLoadingComplete={e => {
                             setIsLoading(draft=>{draft[1] = false});
                             setImageHeight(draft => {
@@ -200,21 +201,17 @@ Start reading the chapter ${chapter} of the manga ${ name } in ${langue} with Sc
                                 }
                             })
                     }}
-                    quality={75} 
-                    src={chapterObject && (!isLoading[1] || isOnline) && chapterObject.images[activePageIndex]} width={400}
-                    height={586} />
+                    quality={75}
+                    src={chapterObject?.images[activePageIndex]} width={400}
+                    height={586} /> : <div style={{height:imageHeight[1], width:"400px"}} />}
                     {isLoading[1] && 
-                    <svg class="spinner" viewBox="0 0 50 50">
-                        <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5">
-
-                        </circle>
-                    </svg>
+                    <Loading />
                     }
                 </div>
                 <div className={styles.page}>
-                    <Image
+                    {(!isLoading[2] || isOnline) ? <Image
                     alt={`Page ${activePageIndex + 2} of the chapter ${chapter} of ${name}`}
-                    className={isLoading[2] && styles.isLoading}
+                    className={isLoading[2] ? styles.isLoading : undefined}
                     onLoadingComplete={e => {
                         setIsLoading(draft=>{draft[2] = false});
                         if(!isMobile){
@@ -225,14 +222,10 @@ Start reading the chapter ${chapter} of the manga ${ name } in ${langue} with Sc
                         
                         }}
                     quality={75} 
-                    src={chapterObject && (!isLoading[2] || isOnline) && chapterObject.images[activePageIndex + 1]} width={400}
-                    height={586} />
+                    src={chapterObject && chapterObject?.images[activePageIndex + 1]} width={400}
+                    height={586} /> : <div style={{height:imageHeight[2], width:"400px"}} />}
                     {isLoading[2] && 
-                    <svg class="spinner" viewBox="0 0 50 50">
-                        <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5">
-
-                        </circle>
-                    </svg>
+                        <Loading />
                     }
                 </div>
 
@@ -248,8 +241,8 @@ Start reading the chapter ${chapter} of the manga ${ name } in ${langue} with Sc
                 
             </div>
             {!isOnline && <div className={styles.notif}>
-                <Image src={"/error.svg"} quality={100} width={25} height={25} />
-                <p>You're network is currently offline !</p>
+                <Image alt={"icon error"} src={"/error.svg"} quality={100} width={25} height={25} />
+                <p>You&apos;re network is currently offline !</p>
             </div>}
         </Fragment>
     );

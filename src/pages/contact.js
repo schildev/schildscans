@@ -2,6 +2,7 @@ import {useForm} from "../hooks/useForm";
 import Head from "next/head"
 import styles from "@/styles/Contact.module.css"
 import {Norobots} from "@/components/Robots";
+import Loading from "@/components/Loading";
 export const Input = ({name, children}) => {
     return (
         <div className={styles.field}>
@@ -54,11 +55,7 @@ const Contact = () => {
                 <button disabled={pending} className={`${styles.sendButton} dosis ` + (pending && styles.isLoading)} type="submit">
                 {pending ? 
                 (
-                <svg class="spinner" viewBox="0 0 50 50">
-                    <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5">
-
-                    </circle>
-                </svg>
+                <Loading />
                 ) : "Send"}
                 </button>
             </div>

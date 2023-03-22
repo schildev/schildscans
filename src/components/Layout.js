@@ -10,7 +10,7 @@ const Layout = ({children}) => {
         <>
         <Head>
         <style>
-        @import url("https://fonts.googleapis.com/css2?family=Cabin&family=Tilt+Neon&family=Poiret+One&family=Dosis:wght@200&family=Comfortaa:wght@300&display=swap");
+            @import url(&quot;https://fonts.googleapis.com/css2?family=Cabin&family=Tilt+Neon&family=Poiret+One&family=Dosis:wght@200&family=Comfortaa:wght@300&display=swap&ldquo;);
         </style>
         </Head>
         <Navbar/>
