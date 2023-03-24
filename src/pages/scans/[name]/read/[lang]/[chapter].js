@@ -139,10 +139,10 @@ const Chapter = ({chapter:chapterObject}) => {
     return (
         <Fragment>
             <Head>
-                <title>{name} Chapter {chapter} in English | SchildScans</title>
+                <title>{chapterObject?.manga} Chapter {chapterObject?.chapterNumber} in English | SchildScans</title>
             </Head>
             <Robots description={`
-Start reading the chapter ${chapter} of the manga ${ name } in ${langue} with SchildScans today.`} />
+Start reading the chapter ${chapterObject?.chapterNumber} of the manga ${ chapterObject?.manga } in ${chapterObject?.lang} with SchildScans today.`} />
             
             <div className={styles.chapHeader}>
                 <p>{lang}</p>
