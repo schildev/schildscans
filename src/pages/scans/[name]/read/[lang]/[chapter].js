@@ -49,7 +49,7 @@ const Chapter = ({chapter:chapterObject}) => {
     const [isOnline, setIsOnline] = useState(true);
     const timeoutID = useRef(null);
     const router = useRouter();
-
+    const {lang, name, chapter} = router.query;
     const handleLoading = function(){
         setIsLoading(draft => {
                         draft[1] = true;
