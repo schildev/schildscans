@@ -1,4 +1,3 @@
-import {useRouter} from "next/router";
 import styles from "@/styles/Chapter.module.css"
 import Link from "next/link";
 import Image from "next/image";
@@ -40,9 +39,6 @@ export async function getStaticProps({params}){
 }
 
 const Chapter = ({chapter:chapterObject}) => {
-    const router = useRouter();
-
-    const {name, lang, chapter} = router.query;
     const [activePageIndex, setActivePageIndex] = useState(0);
     const [isLoading, setIsLoading] = useImmer({1:false, 2:false});
     const [autoPlayOn, setAutoPlayOn] = useState(false);
