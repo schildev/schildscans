@@ -36,9 +36,9 @@ export async function getStaticPaths() {
     return (
         <>
         <Head>
-            <title>Read All Chapters of {name} in English or Raw | SchildScans</title>
+            <title>Read All Chapters of {manga.titre} in English or Raw | SchildScans</title>
         </Head>
-        <Robots description={`Looking for a reliable source to read ${name} in English? Look no further than SchildScans ! And the best part ? Our translations are completely free to read online in English! Discover ${name} with SchildScans today.`} />
+        <Robots description={`Looking for a reliable source to read ${manga.titre} in English? Look no further than SchildScans ! And the best part ? Our translations are completely free to read online in English! Discover ${name} with SchildScans today.`} />
         <div className={styles.container}>
             <Image
             src={`https://schildscans.pythonanywhere.com${manga?.manga_image}`}
