@@ -38,7 +38,7 @@ const nextConfig = {
           },
           {
             key: 'X-Frame-Options',
-            value: 'deny'
+            value: 'DENY'
           }
         ],
       },
