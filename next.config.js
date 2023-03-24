@@ -10,18 +10,6 @@ const nextConfig = {
       }
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path',
-        destination: 'https://schildscans.pythonanywhere.com/api/:path/'
-      },
-      {
-        source:"/sitemap.xml",
-        destination:"https://schildscans.pythonanywhere.com/sitemapes.xml"
-      }
-    ]
-  },
   async headers() {
     return [
       {
@@ -38,6 +26,18 @@ const nextConfig = {
           }
         ],
       },
+    ]
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path',
+        destination: 'https://schildscans.pythonanywhere.com/api/:path/'
+      },
+      {
+        source:"/sitemap.xml",
+        destination:"https://schildscans.pythonanywhere.com/sitemapes.xml"
+      }
     ]
   }
 }
