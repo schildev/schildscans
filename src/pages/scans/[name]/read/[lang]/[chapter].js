@@ -133,8 +133,6 @@ const Chapter = ({chapter:chapterObject}) => {
             window.removeEventListener("online", onlineListener);
         }
     }, [])
-    
-    const langue = lang?.length == 2 ? "English" : lang
     const isMobile = windowWidth < 500
     return (
         <Fragment>
