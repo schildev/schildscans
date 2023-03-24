@@ -1,3 +1,4 @@
+import {useRouter} from "next/router";
 import styles from "@/styles/Chapter.module.css"
 import Link from "next/link";
 import Image from "next/image";
@@ -47,6 +48,7 @@ const Chapter = ({chapter:chapterObject}) => {
     const [windowWidth, setWindowWidth] = useState(null);
     const [isOnline, setIsOnline] = useState(true);
     const timeoutID = useRef(null);
+    const router = useRouter();
 
     const handleLoading = function(){
         setIsLoading(draft => {
