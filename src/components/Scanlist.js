@@ -6,7 +6,7 @@ const Scanlist = ({scans}) => {
         <div className="scansList">
             {scans.map(scan => (
                 <div className="scan" key={scan.name}>
-                    <Link href={`/scans/${scan.name}`>
+                    <Link href={`/scans/${scan.name}`}>
                         <Image
                         alt={`Cover of ${scan.name}`}
                         src={"https://schildscans.pythonanywhere.com" + scan.image}
