@@ -25,6 +25,23 @@ const nextConfig = {
         destination:"https://schildscans.pythonanywhere.com/sitemapes.xml"
       }
     ]
-  }
+  },
+  async headers() {
+    return [
+      {
+        // Apply these headers to all routes in your application.
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'deny'
+          }
+        ],
+      },
+    ]
 }
 module.exports = nextConfig
