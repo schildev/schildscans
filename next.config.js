@@ -21,7 +21,7 @@ const nextConfig = {
         destination: 'https://schildscans.pythonanywhere.com/api/:path/'
       },
       {
-        source:"/test/sitemap.xml",
+        source:"/sitemap.xml",
         destination:"https://schildscans.pythonanywhere.com/sitemapes.xml"
       }
     ]
