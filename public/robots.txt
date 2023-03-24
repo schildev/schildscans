@@ -1,3 +1,5 @@
 User-agent: *
 Disallow: /contact/
 Disallow: /report-issue/
+Disallow: /_next/
+Sitemap: https://schildscans.vercel.app/sitemap.xml
