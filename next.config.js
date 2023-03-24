@@ -7,11 +7,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'schildscans.pythonanywhere.com',
         port: ''
-      },
-      {
-        protocol:"https",
-        hostname:"raw.githubusercontent.com"
-      },
+      }
     ],
   },
   async rewrites() {
