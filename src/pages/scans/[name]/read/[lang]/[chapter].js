@@ -132,7 +132,7 @@ const Chapter = ({chapter:chapterObject}) => {
         }
     }, [])
     const isMobile = windowWidth < 500;
-    const langue = chapterObject.?lang.length == 2 ? "english" : "raw"
+    const langue = chapterObject?.lang.length == 2 ? "english" : "raw"
     return (
         <Fragment>
             <Head>
