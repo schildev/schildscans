@@ -131,14 +131,15 @@ const Chapter = ({chapter:chapterObject}) => {
             window.removeEventListener("online", onlineListener);
         }
     }, [])
-    const isMobile = windowWidth < 500
+    const isMobile = windowWidth < 500;
+    const langue = chapterObject.?lang.length == 2 ? "english" : "raw"
     return (
         <Fragment>
             <Head>
                 <title>{chapterObject?.manga} Chapter {chapterObject?.chapterNumber} in English | SchildScans</title>
             </Head>
             <Robots description={`
-Start reading the chapter ${chapterObject?.chapterNumber} of the manga ${ chapterObject?.manga } in ${chapterObject?.lang} with SchildScans today.`} />
+Start reading the chapter ${chapterObject?.chapterNumber} of the manga ${ chapterObject?.manga } in ${langue} with SchildScans today.`} />
             
             <div className={styles.chapHeader}>
                 <p>{lang}</p>
