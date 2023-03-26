@@ -7,7 +7,7 @@ import {useImmer} from "use-immer";
 import Head from "next/head";
 import { Robots } from "@/components/Robots";
 import Loading from "@/components/Loading";
-
+const tit = ""
 export async function getStaticPaths(){
     const request = await fetch(`https://schildscans.pythonanywhere.com/api/mangas/all?format=json`);
     const mangas = await request.json();
@@ -136,7 +136,7 @@ const Chapter = ({chapter:chapterObject}) => {
     return (
         <Fragment>
             <Head>
-                <title>{chapterObject?.manga} Chapter {String(chapterObject?.chapterNumber)} in {langue} | SchildScans</title>
+                <title>{`${chapterObject?.manga} Chapter ${chapterObject?.chapterNumber} in ${langue} | SchildScans}`</title>
             </Head>
             <Robots description={`
 Start reading the chapter ${chapterObject?.chapterNumber} of the manga ${ chapterObject?.manga } in ${langue} with SchildScans today.`} />
