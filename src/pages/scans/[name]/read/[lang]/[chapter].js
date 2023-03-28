@@ -16,7 +16,7 @@ export async function getStaticPaths(){
         for(let langue of Object.keys(manga.chapters)){
             const path = manga.chapters[langue].map(chapter => {
                 return {
-                    params:{name:manga.titre, lang:langue, chapter:String(chapter)}
+                    params:{name:manga.slug, lang:langue, chapter:String(chapter)}
                 }
             })
             paths = paths.concat(path)
