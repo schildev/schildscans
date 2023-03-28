@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 
   const ScanDetail = ({manga}) => {
     const {name} = useRouter().query;
-    if{!manga}{
+    if(!manga){
         return (<div style={{color:"#fff"}}>Loading</div>)
     }
     return (
