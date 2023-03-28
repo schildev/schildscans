@@ -11,7 +11,7 @@ export async function getStaticPaths() {
     const data = await request.json();
     const paths = data.map(manga => {
         return {
-            params:{name:manga.name}
+            params:{name:manga.slug}
         }
     })
     return {
