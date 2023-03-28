@@ -135,12 +135,15 @@ const Chapter = ({chapter:chapterObject}) => {
     const langue = chapterObject?.lang.length == 2 ? "english" : "raw"
     return (
         <Fragment>
+        {chapterObject && (
+            <>
             <Head>
                 <title>{`${chapterObject?.manga} Chapter ${chapterObject?.chapterNumber} in ${langue} | SchildScans`}</title>
             </Head>
             <Robots description={`
-Start reading the chapter ${chapterObject?.chapterNumber} of the manga ${ chapterObject?.manga } in ${langue} with SchildScans today.`} />
-            
+            Start reading the chapter ${chapterObject?.chapterNumber} of the manga ${ chapterObject?.manga } in ${langue} with SchildScans today.`} />
+            </>
+            )}
             <div className={styles.chapHeader}>
                 <p>{lang}</p>
                 <h1>{name}</h1>
