@@ -62,7 +62,7 @@ export async function getStaticPaths() {
                     <div className={styles.chapList}>
                         <h2 className={"white " + styles.disFont}>En</h2>
                         <div className={styles.chaps}>
-                            {manga?.chapters.en.map(scan => (
+                            {manga?.chapters?.en.map(scan => (
                                 <Link key={scan+"en"} href={`/scans/${name}/read/En/${scan}`}>[{name}] Chapter {scan}</Link>
                             ))}
                         </div>
@@ -70,7 +70,7 @@ export async function getStaticPaths() {
                     <div className={styles.chapList}>
                         <h2 className={"white " + styles.disFont}>Raw</h2>
                         <div className={styles.chaps}>
-                            {manga?.chapters.raw.map((scan) => (
+                            {manga?.chapters?.raw.map((scan) => (
                             <Link key={scan+"raw"} href={`/scans/${name}/read/raw/${scan}`}>[{name}] Chapter {scan}</Link>
                             ))}
                         </div>
