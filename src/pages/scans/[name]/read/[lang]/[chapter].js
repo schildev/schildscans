@@ -50,9 +50,6 @@ const Chapter = ({chapter:chapterObject}) => {
     const timeoutID = useRef(null);
     const router = useRouter();
     const {lang, name, chapter} = router.query;
-    if(!chapterObject){
-        return (<div>Loading</div>)
-    }
     const handleLoading = function(){
         setIsLoading(draft => {
                         draft[1] = true;
@@ -136,6 +133,9 @@ const Chapter = ({chapter:chapterObject}) => {
     }, [])
     const isMobile = windowWidth < 500;
     const langue = chapterObject?.lang.length == 2 ? "english" : "raw"
+    if(!chapterObject){
+        return (<div>Loading</div>)
+    }
     return (
         <Fragment>
         {chapterObject && (
