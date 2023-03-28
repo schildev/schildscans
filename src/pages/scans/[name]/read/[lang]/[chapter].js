@@ -40,9 +40,6 @@ export async function getStaticProps({params}){
 }
 
 const Chapter = ({chapter:chapterObject}) => {
-    if(!chapterObject){
-        return (<div>Loading</div>)
-    }
     const [activePageIndex, setActivePageIndex] = useState(0);
     const [isLoading, setIsLoading] = useImmer({1:false, 2:false});
     const [autoPlayOn, setAutoPlayOn] = useState(false);
@@ -53,6 +50,9 @@ const Chapter = ({chapter:chapterObject}) => {
     const timeoutID = useRef(null);
     const router = useRouter();
     const {lang, name, chapter} = router.query;
+    if(!chapterObject){
+        return (<div>Loading</div>)
+    }
     const handleLoading = function(){
         setIsLoading(draft => {
                         draft[1] = true;
