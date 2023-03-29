@@ -56,7 +56,7 @@ export async function getStaticPaths() {
             alt={`Cover of ${name}`}
             className={styles.cover} />
             <div className={styles.info}>
-                <h1 className={`nomar ${styles.font} ${styles.display} ${styles.color}`}>{name}</h1>
+                <h1 className={`nomar ${styles.font} ${styles.display} ${styles.color}`}>{manga?.titre}</h1>
                 <p className="dosis white" style={{fontSize:"clamp(13px, 15px, 16px)", overflowWrap:"anywhere"}}>{manga?.description}</p>
                 <nav className={styles.chapters}>
                     <div className={styles.chapList}>
