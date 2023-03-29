@@ -23,12 +23,19 @@ export async function getStaticPaths() {
   export async function getStaticProps({ params }){
     const request = await fetch(`https://schildscans.pythonanywhere.com/api/mangas/scans/${params.name}/?format=json`);
     const manga = await request.json();
-    return {
-        props:{
-            manga
-        },
-        revalidate:30
+    if(manga){
+        return {
+            props:{
+                manga
+            },
+            revalidate:10
+        }
+    }else{
+        return {
+            props:{}, notFound:true
+        }
     }
+    
 }
 
   const ScanDetail = ({manga}) => {
