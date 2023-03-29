@@ -31,12 +31,21 @@ export async function getStaticPaths(){
 export async function getStaticProps({params}){
     const request = await fetch(`https://schildscans.pythonanywhere.com/api/mangas/scans/${params.name}/${params.lang}/${params.chapter}/?format=json`);
     const chapter = await request.json();
-    return {
-        props:{
-            chapter
-        },
-        revalidate:30
+    if(request.ok){
+        return {
+            props:{
+                chapter
+            },
+            revalidate:15
+        }
     }
+    else{
+        return {
+            props:{},
+            notFound:true
+        }
+    }
+    
 }
 
 const Chapter = ({chapter:chapterObject}) => {
