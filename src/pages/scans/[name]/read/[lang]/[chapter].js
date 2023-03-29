@@ -149,7 +149,7 @@ const Chapter = ({chapter:chapterObject}) => {
             )}
             <div className={styles.chapHeader}>
                 <p>{lang}</p>
-                <h1>{name}</h1>
+                <h1>{chapterObject?.manga}</h1>
                 <p>{chapter}</p>
             </div>
             <nav className={styles.history}>
