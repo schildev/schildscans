@@ -28,7 +28,7 @@ export async function getStaticPaths() {
             props:{
                 manga
             },
-            revalidate:10
+            revalidate:15
         }
     }else{
         return {
